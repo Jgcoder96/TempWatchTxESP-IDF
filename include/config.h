@@ -1,0 +1,9 @@
+#include "cJSON.h"
+#include "driver/adc.h"
+#include "driver/gpio.h"
+#include "esp_adc_cal.h"
+#include "freertos/FreeRTOS.h"
+#include "freertos/queue.h"
+#include "freertos/task.h"
+#include <stdio.h>
+#include <string.h>

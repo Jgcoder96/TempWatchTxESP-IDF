@@ -1,0 +1,12 @@
+{
+  "files.associations": {
+    "cstdlib": "c",
+    "freertos.h": "c",
+    "queue.h": "c",
+    "temperaturesensor.h": "c",
+    "string.h": "c",
+    "config.h": "c",
+    "adc.h": "c",
+    "systemstatus.h": "c"
+  }
+}
