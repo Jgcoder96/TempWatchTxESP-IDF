@@ -7,6 +7,7 @@
     "string.h": "c",
     "config.h": "c",
     "adc.h": "c",
-    "systemstatus.h": "c"
+    "systemstatus.h": "c",
+    "event_groups.h": "c"
   }
 }
