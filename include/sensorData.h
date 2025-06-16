@@ -2,15 +2,15 @@
 #define SENSOR_DATA_H
 
 typedef struct {
-    char name[20];
-    float voltage;
+  char name[40];
+  float voltage;
 } SensorDataStruct;
 
 typedef struct {
-    SensorDataStruct sensor1;
-    SensorDataStruct sensor2;
-    SensorDataStruct sensor3;
-    SensorDataStruct sensor4;
+  SensorDataStruct sensor1;
+  SensorDataStruct sensor2;
+  SensorDataStruct sensor3;
+  SensorDataStruct sensor4;
 } SensorDataCollectionStruct;
 
 #define QUEUE_LENGTH 10

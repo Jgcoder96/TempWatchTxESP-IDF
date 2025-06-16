@@ -4,16 +4,16 @@
 #include "sensorData.h"  // Incluye SensorDataStruct y SensorDataCollectionStruct
 
 typedef struct {
-    char name[20];
-    float voltage;
-    float temperature;
+  char name[40];
+  float voltage;
+  float temperature;
 } SystemStruct;
 
 typedef struct {
-    SystemStruct system1;
-    SystemStruct system2;
-    SystemStruct system3;
-    SystemStruct system4;
+  SystemStruct system1;
+  SystemStruct system2;
+  SystemStruct system3;
+  SystemStruct system4;
 } SystemCollectionStruct;
 
 void processSensorData(SensorDataCollectionStruct data);

@@ -19,10 +19,10 @@ void senseTemperature(void *pvParam) {
     
     readAllAdcChannels(adc_results);
 
-    sensorData.sensor1 = (SensorDataStruct){"Sensor 1", adc_results[0].voltage};
-    sensorData.sensor2 = (SensorDataStruct){"Sensor 2", adc_results[1].voltage};
-    sensorData.sensor3 = (SensorDataStruct){"Sensor 3", adc_results[2].voltage};
-    sensorData.sensor4 = (SensorDataStruct){"Sensor 4", adc_results[3].voltage};
+    sensorData.sensor1 = (SensorDataStruct){"1617eb36-d677-44d9-add1-f9ee84da4d91", adc_results[0].voltage};
+    sensorData.sensor2 = (SensorDataStruct){"057f4ad8-fd5e-4337-bbaa-649abb7fdf2c", adc_results[1].voltage};
+    sensorData.sensor3 = (SensorDataStruct){"ab9865f0-3e68-4e2c-98e1-fd1936c452eb", adc_results[2].voltage};
+    sensorData.sensor4 = (SensorDataStruct){"731e6ebb-4ddd-4fb0-8b01-14c61f7a61f6", adc_results[3].voltage};
 
     xQueueSend(sensor_queue, &sensorData, pdMS_TO_TICKS(1000));
     

@@ -3,6 +3,7 @@
 #include "nvsManager.h"
 #include "temperatureSensor.h"
 #include "wifiManager.h"
+#include "sendDataToServer.h"
 
 QueueHandle_t sensor_queue = NULL;
 
@@ -17,5 +18,6 @@ void app_main() {
 
   xTaskCreatePinnedToCore(senseTemperature, "sensorTemp", 4096, NULL, 12, NULL, 1);
   xTaskCreatePinnedToCore(temperatureControl, "sensorTemp", 4096, NULL, 12, NULL, 1);
+  xTaskCreatePinnedToCore(sendDataToServer, "task30s", 4096, NULL, 12, NULL, 1);
 }
 

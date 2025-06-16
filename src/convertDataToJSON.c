@@ -4,7 +4,7 @@
 
 cJSON* systemToJson(const SystemStruct* system) {
   cJSON* json_system = cJSON_CreateObject();
-  cJSON_AddStringToObject(json_system, "name", system->name);
+  cJSON_AddStringToObject(json_system, "id_sensors", system->name);
   cJSON_AddNumberToObject(json_system, "voltage", system->voltage);
   cJSON_AddNumberToObject(json_system, "temperature", system->temperature);
   return json_system;

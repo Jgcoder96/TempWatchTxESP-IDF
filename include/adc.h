@@ -6,16 +6,16 @@
 #define NUM_ADC_CHANNELS 4
 
 static const float ADC_DEFAULT_OFFSETS[NUM_ADC_CHANNELS] = {
-    0.14f,   // Offset para GPIO32 (Canal 0)
-    0.12f,   // Offset para GPIO33 (Canal 1)
-    0.14f,   // Offset para GPIO34 (Canal 2)
-    0.14f    // Offset para GPIO35 (Canal 3)
+  0.14f,   // Offset para GPIO32 (Canal 0)
+  0.12f,   // Offset para GPIO33 (Canal 1)
+  0.14f,   // Offset para GPIO34 (Canal 2)
+  0.14f    // Offset para GPIO35 (Canal 3)
 };
 
 typedef struct {
-    float voltage;
-    uint32_t raw_value;
-    const char *name;
+  float voltage;
+  uint32_t raw_value;
+  const char *name;
 } adcReadingStruct;
 
 void adcReaderInit(void);

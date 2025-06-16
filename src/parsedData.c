@@ -21,27 +21,27 @@ void processSensorData(SensorDataCollectionStruct data) {
 
   systemCollection.system1 = (SystemStruct) 
     {
-      "Sensor 1", 
+      "1617eb36-d677-44d9-add1-f9ee84da4d91", 
       voltage1, 
       temperatura1,
     };
   systemCollection.system2 = (SystemStruct)
     {
-      "Sensor 2", 
+      "057f4ad8-fd5e-4337-bbaa-649abb7fdf2c", 
       voltage2, 
       temperatura2, 
     };
   systemCollection.system3 = (SystemStruct) 
     {
-      "Sensor 3", 
+      "ab9865f0-3e68-4e2c-98e1-fd1936c452eb", 
       voltage3, 
       temperatura3, 
     };
 
   systemCollection.system4 = (SystemStruct)
     {
-      "Sensor 4", 
-      voltage3, 
+      "731e6ebb-4ddd-4fb0-8b01-14c61f7a61f6", 
+      voltage4, 
       temperatura4, 
     };
 }
