@@ -4,19 +4,20 @@
 
 SystemCollectionStruct systemCollection;
 
-float voltageToTemperature(float voltage);
+double voltageToTemperature(double voltage);
+double redondear(double valor);
 
 void processSensorData(SensorDataCollectionStruct data) {
 
-  float voltage1 = data.sensor1.voltage;
-  float voltage2 = data.sensor2.voltage;
-  float voltage3 = data.sensor3.voltage;
-  float voltage4 = data.sensor4.voltage;
+  double voltage1 = redondear(data.sensor1.voltage);
+  double voltage2 = redondear(data.sensor2.voltage);
+  double voltage3 = redondear(data.sensor3.voltage);
+  double voltage4 = redondear(data.sensor4.voltage);
 
-  float temperatura1 = voltageToTemperature(voltage1);
-  float temperatura2 = voltageToTemperature(voltage2);
-  float temperatura3 = voltageToTemperature(voltage3);
-  float temperatura4 = voltageToTemperature(voltage4);
+  double temperatura1 = redondear(voltageToTemperature(voltage1));
+  double temperatura2 = redondear(voltageToTemperature(voltage2));
+  double temperatura3 = redondear(voltageToTemperature(voltage3));
+  double temperatura4 = redondear(voltageToTemperature(voltage4));
 
 
   systemCollection.system1 = (SystemStruct) 
@@ -46,12 +47,16 @@ void processSensorData(SensorDataCollectionStruct data) {
     };
 }
 
-float voltageToTemperature(float voltage) {
-  float temp_min = 30.0;   
-  float temp_max = 140.0;  
+double voltageToTemperature(double voltage) {
+  double temp_min = 30.0;   
+  double temp_max = 140.0;  
   
   if (voltage < 0.0) voltage = 0.0;
   else if (voltage > 3.0) voltage = 3.0;
 
   return temp_min + (voltage / 3.0) * (temp_max - temp_min);
 }
+
+double redondear(double valor) {
+  return round(valor * 100) / 100;
+};

@@ -38,6 +38,8 @@ void temperatureControl(void *pvParam) {
       if (xQueueReceive(sensor_queue, &receivedData, pdMS_TO_TICKS(portMAX_DELAY)) == pdTRUE) {
         processSensorData(receivedData);
         jsonOutput = systemsToJsonString(&systemCollection);
+        printf(jsonOutput);
       }  
     }
 }
+

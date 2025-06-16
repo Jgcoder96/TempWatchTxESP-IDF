@@ -5,8 +5,8 @@
 
 typedef struct {
   char name[40];
-  float voltage;
-  float temperature;
+  double voltage;
+  double temperature;
 } SystemStruct;
 
 typedef struct {

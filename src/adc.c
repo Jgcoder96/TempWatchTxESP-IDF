@@ -3,7 +3,7 @@
 #include "esp_adc_cal.h"
 
 // Configuración privada
-#define DEFAULT_VREF        1100        // Valor de referencia en mV
+#define DEFAULT_VREF        0        // Valor de referencia en mV
 #define NO_OF_SAMPLES       64          // Número de muestras para promediar
 #define ADC_ATTEN           ADC_ATTEN_DB_11 // Atenuación para 0-3.6V
 

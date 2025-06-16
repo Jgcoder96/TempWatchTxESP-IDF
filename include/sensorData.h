@@ -3,7 +3,7 @@
 
 typedef struct {
   char name[40];
-  float voltage;
+  double voltage;
 } SensorDataStruct;
 
 typedef struct {
