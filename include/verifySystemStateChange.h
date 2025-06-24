@@ -1,0 +1,1 @@
+void verifySystemStateChange(void *pvParameters);

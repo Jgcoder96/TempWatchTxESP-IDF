@@ -11,6 +11,8 @@
     "event_groups.h": "c",
     "senddatatoserver.h": "c",
     "nvsmanager.h": "c",
-    "esp_http_client.h": "c"
+    "esp_http_client.h": "c",
+    "checksystemstatechanges.h": "c",
+    "sensordata.h": "c"
   }
 }

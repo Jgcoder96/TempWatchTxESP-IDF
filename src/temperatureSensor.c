@@ -3,12 +3,13 @@
 #include "systemStatus.h"
 #include "temperatureSensor.h"
 #include "sensorData.h"
-#include "convertDataToJSON.h"
+#include "httpClientPost.h"
 
 extern SystemCollectionStruct systemCollection;
+
 extern QueueHandle_t sensor_queue;
 
-char* jsonOutput;
+extern volatile bool wifiConnected;
 
 void senseTemperature(void *pvParam) {
   
@@ -19,14 +20,14 @@ void senseTemperature(void *pvParam) {
     
     readAllAdcChannels(adc_results);
 
-    sensorData.sensor1 = (SensorDataStruct){"1617eb36-d677-44d9-add1-f9ee84da4d91", adc_results[0].voltage};
-    sensorData.sensor2 = (SensorDataStruct){"057f4ad8-fd5e-4337-bbaa-649abb7fdf2c", adc_results[1].voltage};
-    sensorData.sensor3 = (SensorDataStruct){"ab9865f0-3e68-4e2c-98e1-fd1936c452eb", adc_results[2].voltage};
-    sensorData.sensor4 = (SensorDataStruct){"731e6ebb-4ddd-4fb0-8b01-14c61f7a61f6", adc_results[3].voltage};
+    sensorData.sensor1 = (SensorDataStruct){"f5deb1d4-3eb3-41b7-a4bb-cba02954ae8d", adc_results[0].voltage};
+    sensorData.sensor2 = (SensorDataStruct){"593740d7-5284-4226-abe9-b19c42dce662", adc_results[1].voltage};
+    sensorData.sensor3 = (SensorDataStruct){"fdc21238-2c88-4df6-9759-c89da74aef3e", adc_results[2].voltage};
+    sensorData.sensor4 = (SensorDataStruct){"e5ec1e01-8fb4-47f3-9510-af2b2be20c86", adc_results[3].voltage};
 
-    xQueueSend(sensor_queue, &sensorData, pdMS_TO_TICKS(1000));
+    xQueueSend(sensor_queue, &sensorData, pdMS_TO_TICKS(100));
     
-    vTaskDelay(pdMS_TO_TICKS(5000));
+    vTaskDelay(pdMS_TO_TICKS(100));
   }
 }
 
@@ -37,8 +38,13 @@ void temperatureControl(void *pvParam) {
     while (1) {
       if (xQueueReceive(sensor_queue, &receivedData, pdMS_TO_TICKS(portMAX_DELAY)) == pdTRUE) {
         processSensorData(receivedData);
-        jsonOutput = systemsToJsonString(&systemCollection);
-        printf(jsonOutput);
+        /* if (wifiConnected && json_changes != NULL) {
+            esp_err_t err = sendJsonPost("http://192.168.18.221:3000/api/data", json_changes);
+            if (err != ESP_OK) {
+              ESP_LOGW("HTTP", "No se pudo enviar datos al servidor");
+            }
+          
+        } */
       }  
     }
 }

@@ -3,6 +3,6 @@
 
 #include "esp_err.h"
 
-esp_err_t sendJsonPost(const char *url);
+esp_err_t sendJsonPost(const char *url, const char *json_data);
 
 #endif 
