@@ -5,7 +5,7 @@
 extern SystemCollectionStruct systemCollection;
 
 double voltageToTemperature(double voltage);
-double redondear(double valor);
+double round(double value);
 static void updateSingleSystemState(SystemStruct *system, const HysteresisConfig *hyst);
 void updateSystemStatesWithHysteresis(SystemCollectionStruct *systems);
 static const char* stateToString(SystemState state);
@@ -50,8 +50,8 @@ double voltageToTemperature(double voltage) {
   return temp_min + (voltage / 3.0) * (temp_max - temp_min);
 }
 
-double redondear(double valor) {
-  return round(valor * 100) / 100;
+double round(double value) {
+  return round(value * 100) / 100;
 };
 
 static void updateSingleSystemState(SystemStruct *system, const HysteresisConfig *hyst) {

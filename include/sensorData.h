@@ -13,7 +13,7 @@ typedef struct {
   SensorDataStruct sensor4;
 } SensorDataCollectionStruct;
 
-#define QUEUE_LENGTH 10
+#define QUEUE_LENGTH 100
 #define ITEM_SIZE sizeof(SensorDataCollectionStruct)
 
 #endif // SENSOR_DATA_H

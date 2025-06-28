@@ -51,7 +51,7 @@ void app_main() {
 
   systemCollection.hysteresis.preventive_threshold = 85.0;
   systemCollection.hysteresis.emergency_threshold = 110.0;
-  systemCollection.hysteresis.hysteresis_range = 10.0;
+  systemCollection.hysteresis.hysteresis_range = 5.0;
 
   adcReaderInit();
   initNvs();

@@ -38,13 +38,6 @@ void temperatureControl(void *pvParam) {
     while (1) {
       if (xQueueReceive(sensor_queue, &receivedData, pdMS_TO_TICKS(portMAX_DELAY)) == pdTRUE) {
         processSensorData(receivedData);
-        /* if (wifiConnected && json_changes != NULL) {
-            esp_err_t err = sendJsonPost("http://192.168.18.221:3000/api/data", json_changes);
-            if (err != ESP_OK) {
-              ESP_LOGW("HTTP", "No se pudo enviar datos al servidor");
-            }
-          
-        } */
       }  
     }
 }

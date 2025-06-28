@@ -7,6 +7,7 @@ extern SystemCollectionStruct systemCollection;
 
 void sendDataToServer(void *pvParameters) {
   while (1) {
+    vTaskDelay(pdMS_TO_TICKS(30000));
     char* jsonOutput = systemsToJsonString(&systemCollection);
     if (wifiConnected && jsonOutput != NULL) {
       printf("Enviando datos al servidor: %s\n", jsonOutput);
@@ -15,6 +16,5 @@ void sendDataToServer(void *pvParameters) {
         ESP_LOGW("HTTP", "No se pudo enviar datos al servidor");
       }
     }
-    vTaskDelay(30000 / portTICK_PERIOD_MS);
   }
 }

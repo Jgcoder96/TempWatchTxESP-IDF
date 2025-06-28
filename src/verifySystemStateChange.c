@@ -15,6 +15,6 @@ void verifySystemStateChange(void *pvParameters) {
         ESP_LOGW("HTTP", "No se pudo enviar datos al servidor");
       }
     }
-    vTaskDelay(100 / portTICK_PERIOD_MS);
+    vTaskDelay(pdMS_TO_TICKS(100));
   }
 }
